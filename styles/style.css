@@ -55,3 +55,11 @@ h1 {
 .card:hover .card-inner {
     transform: rotateY(180deg);
 }
+
+h2 {
+    text-align: center;
+}
+
+.carousel-item h3, .carousel-item p {
+    background-color: rgba(0, 0, 0, 0.7);
+}

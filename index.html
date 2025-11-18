@@ -17,9 +17,9 @@
         <h1 class="display-2 my-5">Virginia 2026 Primary Election Information</h1>
         <nav>
             <ul class="nav nav-tabs nav-fill flex-column flex-sm-row justify-content-center" id="navTabs">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" aria-selected="true">Home</button>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <button class="nav-link active" id="candidates-tab" data-bs-toggle="tab" data-bs-target="#candidates" type="button">Candidates</button>
                 </li>
@@ -33,14 +33,14 @@
         </nav>
     </header>
     <main>
-        <div class="tab-content mx-5 my-3" id="myTabContent">
+        <div class="tab-content mx-3 mx-md-5" id="myTabContent">
             <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <p>Note: this will have overview of Virginia primary information, links to related sites</p>
-                <p>Implementing this last; I might not need it</p>
+                <!-- <p>Note: this will have overview of Virginia primary information, links to related sites</p> -->
+                <!-- <p>Implementing this last; I might not need it</p> -->
             </div>
             <div class="tab-pane fade show active" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
                 <h2 class="text-center">Candidates</h2>
-                <p>Note: responsive grid with info cards about each candidate (photo/description, link to personal website or ballotpedia page)</p>
+                <!-- <p>Note: responsive grid with info cards about each candidate (photo/description, link to personal website or ballotpedia page)</p> -->
                 
                 <div class="row mx-auto text-center d-flex justify-content-center g-0">
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -221,11 +221,56 @@
 
                 </div>
             </div>
-            <div class="tab-pane fade" id="issues" role="tabpanel" aria-labelledby="issues-tab">
-                <p>This will have a carousel(?) of most important issues, and a brief description</p>
+            <div class="tab-pane fade mx-5 my-5" id="issues" role="tabpanel" aria-labelledby="issues-tab">
+                <h2>Issues</h2>
+                <!-- <p>This will have a carousel(?) of most important issues, and a brief description</p> -->
+                <div id="issues-carousel" class="carousel slide" data-bs-interval="false">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="images/vdoe.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Education</h3>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                        <div class="carousel-item">
+                            <img src="images/taxes.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                            <h3>Taxes</h3>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                        <div class="carousel-item">
+                            <img src="images/abortion.webp" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>Abortion</h3>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#issues-carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#issues-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
             </div>
             <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
-                <p>Explanation of the project/class, my coding and studies, etc.</p>
+                <!-- <p>Explanation of the project/class, my coding and studies, etc.</p> -->
+                <h2>About</h2>
+                <img src="" alt="">
+                <p>My name is Kathryn Byrnes, and I'm a senior at the University of Michigan. I'm majoring in Cognitive Science with minors in Computer Science and UX Design.</p>
+                <p>I'm from Virginia's First District, and local politics have always played a big role in my and my family's lived. I'm passionate about voter education and accessible resources.</p>
+                <p>Local elections are often overlooked, but they are incredibly important--especially primaries that determine which major party candidates are on the ballot</p>
             </div>
         </div>
 
