@@ -1,10 +1,31 @@
+
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
 header {
     text-align: center;
 }
 
 h1 {
     margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
+    border: 10px blue double;
+}
+
+/* body {
+    background: linear-gradient(lightblue, gray);
+} */
+
+.democrat .card-footer {
+    background-color: lightblue;
+}
+
+.republican .card-footer {
+    background-color: lightcoral;
 }
 
 .card-img {
@@ -17,7 +38,7 @@ h1 {
 .card {
     perspective: 1000px;
     /* position: relative; */
-    height: 500px;
+    /* height: 500px; */
 
     display: flex;
     flex-direction: column;
@@ -50,6 +71,8 @@ h1 {
 .card-back {
     background-color: white;
     transform: rotateY(180deg);
+    
+    overflow-y: auto;
 }
 
 .card:hover .card-inner {

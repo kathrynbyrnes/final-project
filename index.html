@@ -4,275 +4,317 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virginia 2026 Primary Election Information</title>
-    <link rel="stylesheet" href="styles/style.css">
 
+    <link rel="icon" type="image/x-icon" href="images/va-seal.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" crossorigin="anonymous"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN">
-    
 
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/style.css">
+    
 </head>
 <body>
-    <header>
-        <h1 class="display-2 my-5">Virginia 2026 Primary Election Information</h1>
-        <nav>
-            <ul class="nav nav-tabs nav-fill flex-column flex-sm-row justify-content-center" id="navTabs">
-                <!-- <li class="nav-item">
-                    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" aria-selected="true">Home</button>
-                </li> -->
-                <li class="nav-item">
-                    <button class="nav-link active" id="candidates-tab" data-bs-toggle="tab" data-bs-target="#candidates" type="button">Candidates</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" id="issues-tab" data-bs-toggle="tab" data-bs-target="#issues" type="button">Issues</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">About</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="tab-content mx-3 mx-md-5 my-5" id="myTabContent">
-            <!-- <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"> -->
-                <!-- <p>Note: this will have overview of Virginia primary information, links to related sites</p> -->
-                <!-- <p>Implementing this last; I might not need it</p> -->
-            <!-- </div> -->
-            <div class="tab-pane fade show active" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
-                <h2 class="text-center">Candidates</h2>
-                <!-- <p>Note: responsive grid with info cards about each candidate (photo/description, link to personal website or ballotpedia page)</p> -->
-                
-                <div class="row mx-auto text-center d-flex justify-content-center g-0">
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="salaambhatti-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/salaambhatti.png" alt="">
-                                </div>
-                                <div class="card-body card-back">
-                                    Back of card
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Salaam Bhatti</h3>
-                            </div>
+    <div id="app">
+        <header>
+            <h1 class="display-2 my-5 fw-bold">Virginia 2026 Primary Election Information</h1>
+            <nav>
+                <ul class="nav nav-tabs nav-fill flex-column flex-sm-row justify-content-center" id="navTabs">
+                    <!-- <li class="nav-item">
+                        <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" aria-selected="true">Home</button>
+                    </li> -->
+                    <li class="nav-item">
+                        <button class="nav-link active" id="candidates-tab" data-bs-toggle="tab" data-bs-target="#candidates" type="button">Candidates</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="issues-tab" data-bs-toggle="tab" data-bs-target="#issues" type="button">Issues</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">About</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="tab-content mx-3 mx-md-5 my-5" id="myTabContent">
+                <!-- <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"> -->
+                    <!-- <p>Note: this will have overview of Virginia primary information, links to related sites</p> -->
+                    <!-- <p>Implementing this last; I might not need it</p> -->
+                <!-- </div> -->
+                <div class="tab-pane fade show active" id="candidates" role="tabpanel" aria-labelledby="candidates-tab">
+                    <h2 class="text-center">Candidates</h2>
+                    <!-- <p>Note: responsive grid with info cards about each candidate (photo/description, link to personal website or ballotpedia page)</p> -->
+                    <div class="row d-flex my-3">
+                        <div class="dropdown col text-start">
+                            <button class="btn btn-secondary btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Sort candidates by:
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" @click="alphabetSort" :class="{ 'bg-primary': alphabet }">Alphabetical</a></li>
+                            <li><a class="dropdown-item" href="#" @click="fundsDownSort" :class="{ 'bg-primary': fundsDown }">Funds (High to Low)</a></li>
+                            <li><a class="dropdown-item" href="#" @click="fundsUpSort" :class="{ 'bg-primary': fundsUp }">Funds (Low to High)</a></li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col text-end">
+                            <button class="btn m-1" type="button" :class="{ 'btn-success': showAll }" @click="partyButton('ALL')" >All Parties</button>
+                            <button class="btn m-1" type="button" :class="{ 'btn-primary': showDems }" @click="partyButton('D')">Democrats</button>
+                            <button class="btn m-1" type="button" :class="{ 'btn-danger': showReps }" @click="partyButton('R')">Republicans</button>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="timcywinski-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/timcywinski.png" alt="">
+                    
+                    <div class="row mx-auto text-center d-flex justify-content-center g-0">
+                        <div v-for="(item, index) in filteredCandidates()" :key="item.id" class="col-lg-3 col-md-4 col-sm-6" :class="{ democrat: item.party === 'D', republican: item.party === 'R' }">
+                            <div class="card m-1" :id="'card' + item.id">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" :src="item.image" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        <p>{{ item.description }}</p>
+                                        <p><strong>Funds: </strong>${{ item.funds }}</p>
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-footer">
+                                    <h3 class="card-title">{{ item.name }}</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Tim Cywinski</h3>
                             </div>
                         </div>
-                    </div>
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="salaambhatti-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/salaambhatti.png" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Salaam Bhatti</h3>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="jasonknapp-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/no-image.png" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="timcywinski-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/timcywinski.png" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Tim Cywinski</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Jason Knapp</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="erickakopp-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/erickakopp.png" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="jasonknapp-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/no-image.png" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Jason Knapp</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Ericka Kopp</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="andrewlucchetti-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/andrewlucchetti.png" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="erickakopp-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/erickakopp.png" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Ericka Kopp</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Andrew Lucchetti</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="amandapohl-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/amandapohl.jpg" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="andrewlucchetti-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/andrewlucchetti.png" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Andrew Lucchetti</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Amanda Pohl</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="jamesshea-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/jamesshea.avif" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="amandapohl-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/amandapohl.jpg" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Amanda Pohl</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">James Shea</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="seansublette-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/seansublette.avif" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="jamesshea-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/jamesshea.avif" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">James Shea</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Sean Sublette</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="shannontaylor-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/shannontaylor.jpg" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="seansublette-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/seansublette.avif" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Sean Sublette</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Shannon Taylor</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="meltull-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/meltull.jpg" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="shannontaylor-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/shannontaylor.jpg" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Shannon Taylor</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Melvin Tull</h3>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="card" id="lisavk-card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="card-img" src="images/lisavedernikovakhanna.webp" alt="">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="meltull-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/meltull.jpg" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
                                 </div>
-                                <div class="card-body card-back">
-                                    Back of card
+                                <div class="card-body">
+                                    <h3 class="card-title">Melvin Tull</h3>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title">Lisa Vedernikova Khanna</h3>
                             </div>
                         </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card" id="lisavk-card">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <img class="card-img" src="images/lisavedernikovakhanna.webp" alt="">
+                                    </div>
+                                    <div class="card-body card-back">
+                                        Back of card
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Lisa Vedernikova Khanna</h3>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+                <div class="tab-pane fade mx-5 my-5" id="issues" role="tabpanel" aria-labelledby="issues-tab">
+                    <h2>Issues</h2>
+                    <!-- <p>This will have a carousel(?) of most important issues, and a brief description</p> -->
+                    <div id="issues-carousel" class="carousel slide" data-bs-interval="false">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="images/vdoe.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>Education</h3>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                            <div class="carousel-item">
+                                <img src="images/taxes.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                <h3>Taxes</h3>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                            <div class="carousel-item">
+                                <img src="images/abortion.webp" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Abortion</h3>
+                                    <p>Some representative placeholder content for the third slide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#issues-carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#issues-carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
 
                 </div>
-            </div>
-            <div class="tab-pane fade mx-5 my-5" id="issues" role="tabpanel" aria-labelledby="issues-tab">
-                <h2>Issues</h2>
-                <!-- <p>This will have a carousel(?) of most important issues, and a brief description</p> -->
-                <div id="issues-carousel" class="carousel slide" data-bs-interval="false">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#issues-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="images/vdoe.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>Education</h3>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                    </div>
-                        <div class="carousel-item">
-                            <img src="images/taxes.png" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                            <h3>Taxes</h3>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                        <div class="carousel-item">
-                            <img src="images/abortion.webp" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>Abortion</h3>
-                                <p>Some representative placeholder content for the third slide.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#issues-carousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#issues-carousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                <div class="tab-pane fade my-5" id="about" role="tabpanel" aria-labelledby="about-tab">
+                    <!-- <p>Explanation of the project/class, my coding and studies, etc.</p> -->
+                    <h2>About</h2>
+                    <!-- <img src="" alt=""> -->
+                    <p>My name is Kathryn Byrnes, and I'm a senior at the University of Michigan. I'm majoring in Cognitive Science with minors in Computer Science and UX Design.</p>
+                    <p>I'm from Virginia's First District, and local politics have always played a big role in my and my family's lived. I'm passionate about voter education and accessible resources.</p>
+                    <p>Local elections are often overlooked, but they are incredibly important--especially primaries that determine which major party candidates are on the ballot</p>
                 </div>
-
             </div>
-            <div class="tab-pane fade my-5" id="about" role="tabpanel" aria-labelledby="about-tab">
-                <!-- <p>Explanation of the project/class, my coding and studies, etc.</p> -->
-                <h2>About</h2>
-                <!-- <img src="" alt=""> -->
-                <p>My name is Kathryn Byrnes, and I'm a senior at the University of Michigan. I'm majoring in Cognitive Science with minors in Computer Science and UX Design.</p>
-                <p>I'm from Virginia's First District, and local politics have always played a big role in my and my family's lived. I'm passionate about voter education and accessible resources.</p>
-                <p>Local elections are often overlooked, but they are incredibly important--especially primaries that determine which major party candidates are on the ballot</p>
-            </div>
-        </div>
 
 
 
@@ -280,10 +322,12 @@
 
 
 
-    </main>
-    <footer>
+        </main>
+        
+        <footer>
 
-    </footer>
+        </footer>
+    </div>
 
 
 
@@ -291,5 +335,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
