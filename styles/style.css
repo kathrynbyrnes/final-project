@@ -250,6 +250,25 @@ h2 {
   }
 
 
+  #about a {
+    color: black;
+  }
+
+  #candidates .bg-primary {
+    background-color: #14213D;
+    color: white;
+  }
+
+  #candidates .selected-button {
+    background-color: #14213D;
+    color: white;
+  }
+
+  /* .btn-primary {
+    background-color: #14213D;
+  } */
+
+
 
 
 

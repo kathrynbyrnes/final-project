@@ -49,10 +49,12 @@
                             <h3 class="text-center">Overview</h3>
                             <button class="accordion">Current Representatives</button>
                                 <div class="accordion-panel">
-                                    <ul><strong>House of Representatives:</strong>
+                                    <strong>House of Representatives:</strong>
+                                    <ul>
                                         <li>Robert Wittman</li>
                                     </ul>
-                                    <ul><strong>Senate:</strong>
+                                    <strong>Senate:</strong>
+                                    <ul>
                                         <li>Mark Warner</li>
                                         <li>Timothy "Tim" Kaine</li>
                                     </ul>
@@ -101,7 +103,7 @@
                                 <button class="btn" :class="{ 'btn-primary': staticMap, 'btn-outline-primary': !staticMap }" @click="mapView('S')">Static Map</button>
                             </div>
                             <div id="maps">
-                                <iframe v-if="interactiveMap" scrolling="no" marginheight="0" src="https://www.govtrack.us/congress/members/embed/mapframe?state=va&district=1&bounds=-78.659,39.277,-75.354,36.058"></iframe>
+                                <iframe aria-label="interactive-district-map" v-if="interactiveMap" src="https://www.govtrack.us/congress/members/embed/mapframe?state=va&district=1&bounds=-78.659,39.277,-75.354,36.058"></iframe>
                             
                                 <div id="static-map" v-if="staticMap">
                                     <img src="images/new-static-map.png" alt="Map of Eastern Virginia showing the border of District One">
@@ -121,13 +123,13 @@
                     <!-- <p>Note: responsive grid with info cards about each candidate (photo/description, link to personal website or ballotpedia page)</p> -->
                     <div class="row d-flex my-3 text-center">
                         <div class="dropdown col text-start">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <button class="btn selected-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
                             Sort candidates by:
                             </button>
                             <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" @click="alphabetSort" :class="{ 'bg-primary': alphabet }">Alphabetical</a></li>
-                            <li><a class="dropdown-item" href="#" @click="fundsDownSort" :class="{ 'bg-primary': fundsDown }">Funds (High to Low)</a></li>
-                            <li><a class="dropdown-item" href="#" @click="fundsUpSort" :class="{ 'bg-primary': fundsUp }">Funds (Low to High)</a></li>
+                            <li><a class="dropdown-item" href="#" @click="alphabetSort" :class="{ 'selected-button': alphabet }">Alphabetical</a></li>
+                            <li><a class="dropdown-item" href="#" @click="fundsDownSort" :class="{ 'selected-button': fundsDown }">Funds (High to Low)</a></li>
+                            <li><a class="dropdown-item" href="#" @click="fundsUpSort" :class="{ 'selected-button': fundsUp }">Funds (Low to High)</a></li>
                             </ul>
 
                         </div>
