@@ -47,7 +47,11 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6" id="overview">
                             <h3 class="text-center">Overview</h3>
-                            <button class="accordion">Current Representatives</button>
+
+                            <button class="accordion" aria-expanded="false">
+                                <span class="accordion-label">Current Representatives</span>
+                                <span class="plus-icon" aria-hidden="true">+</span>
+                            </button>
                                 <div class="accordion-panel">
                                     <strong>House of Representatives:</strong>
                                     <ul>
@@ -60,7 +64,10 @@
                                     </ul>
                                 </div>
 
-                                <button class="accordion">Counties</button>
+                                <button class="accordion" aria-expanded="false">
+                                    <span class="accordion-label">Counties</span>
+                                    <span class="plus-icon" aria-hidden="true">+</span>
+                                </button>
                                 <div class="accordion-panel">
                                     <ul>
                                         <li>Chesterfield</li>
@@ -82,7 +89,10 @@
                                     </ul>
                                 </div>
 
-                                <button class="accordion">Demographics</button>
+                                <button class="accordion" aria-expanded="false">
+                                    <span class="accordion-label">Demographics</span>
+                                    <span class="plus-icon" aria-hidden="true">+</span>
+                                </button>
                                 <div class="accordion-panel">
                                     <ul>
                                         <li><strong>Distribution: </strong>
@@ -99,8 +109,8 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <h3 class="text-center">Map</h3>
                             <div class="d-flex flex-direction-row justify-content-center" id="map-buttons">
-                                <button class="btn" :class="{ 'btn-primary': interactiveMap, 'btn-outline-primary': !interactiveMap }" @click="mapView('I')">Interactive Map</button>
-                                <button class="btn" :class="{ 'btn-primary': staticMap, 'btn-outline-primary': !staticMap }" @click="mapView('S')">Static Map</button>
+                                <button class="btn" :class="{ 'btn-dark': interactiveMap, 'btn-outline-dark': !interactiveMap }" @click="mapView('I')">Interactive Map</button>
+                                <button class="btn" :class="{ 'btn-dark': staticMap, 'btn-outline-dark': !staticMap }" @click="mapView('S')">Static Map</button>
                             </div>
                             <div id="maps">
                                 <iframe aria-label="interactive-district-map" v-if="interactiveMap" src="https://www.govtrack.us/congress/members/embed/mapframe?state=va&district=1&bounds=-78.659,39.277,-75.354,36.058"></iframe>

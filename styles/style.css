@@ -1,8 +1,7 @@
-
-
 * {
     font-family: "Roboto", sans-serif;
 }
+
 
 html, body {
     min-height: 100%;
@@ -14,6 +13,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: #FFFAEB;
 }
 
 header {
@@ -26,11 +26,11 @@ footer {
     background-color: #14213D;
     height: 300px;
     text-align: center;
-    color: white;
+    color: #FFFAEB;
 }
 
 footer a {
-    color: white;
+    color: #FFFAEB;
 }
 
 #footer-div {
@@ -47,15 +47,22 @@ h1 {
     margin-right: 10px;
     padding: 20px;
     text-align: center;
-    color: white;
-    border: 10px white double;
+    color: #FFFAEB;
+    border: 10px #FFFAEB double;
     border-radius: 10px;
 }
 
 h2 {
    background-color: #B3BED0;
+   border-radius: 10px;
    padding: 20px;
    margin-bottom: 20px;
+}
+
+#home h3, #about h3 {
+    background-color: #B3BED0;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #maps {
@@ -79,6 +86,8 @@ h2 {
     width: 100%;
     height: 100%;
     /* max-height: 300px; */
+    border: 5px #14213D dashed;
+    border-radius: 10px;
 }
 
 #static-map {
@@ -90,10 +99,9 @@ h2 {
 
 #static-map img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .democrat .card-footer {
@@ -192,14 +200,9 @@ h2 {
     border: 2px gray solid;
 }
 
-
-
-
-
-/* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #14213D;
+    color: white;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -209,36 +212,27 @@ h2 {
     transition: 0.4s;
     border-radius: 10px;
     margin: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active .accordion:hover {
-    background-color: #ccc;
+    background-color: black;
   }
 
   .accordion:focus {
     border: 2px gray solid;
   }
   
-  /* Style the accordion panel. Note: hidden by default */
   .accordion-panel {
     padding: 0 18px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-  }
-
-  .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-  }
-  
-  .accordion .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    border-radius: 10px;
   }
 
   #overview {
@@ -264,9 +258,22 @@ h2 {
     color: white;
   }
 
+  #candidates h3 {
+    transition: font-size 500ms ease;
+  }
+
+  #candidates h3:hover {
+    font-size: 2rem;
+  }
+
   /* .btn-primary {
     background-color: #14213D;
   } */
+
+
+  .nav-link.active {
+    background-color: #FFFAEB !important;
+  }
 
 
 
@@ -309,5 +316,14 @@ h2 {
 
     .card:hover .card-inner {
         transform: none;
+    }
+
+    #candidates h3 {
+        transition: font-weight 500ms ease;
+    }
+
+    #candidates h3:hover {
+        font-size: 1.75rem;
+        font-weight: bold;
     }
 }
