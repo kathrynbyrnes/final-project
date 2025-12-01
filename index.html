@@ -132,27 +132,32 @@
                     </p>
                     <!-- <p>Note: responsive grid with info cards about each candidate (photo/description, link to personal website or ballotpedia page)</p> -->
                     <div class="row d-flex my-3 text-center">
-                        <div class="dropdown col text-start">
-                            <button class="btn selected-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            Sort candidates by:
-                            </button>
-                            <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" @click="alphabetSort" :class="{ 'selected-button': alphabet }">Alphabetical</a></li>
-                            <li><a class="dropdown-item" href="#" @click="fundsDownSort" :class="{ 'selected-button': fundsDown }">Funds (High to Low)</a></li>
-                            <li><a class="dropdown-item" href="#" @click="fundsUpSort" :class="{ 'selected-button': fundsUp }">Funds (Low to High)</a></li>
-                            </ul>
+                        <div class="col-md-4 text-start">
+                            <div class="dropdown">
+                                <button class="btn selected-button dropdown-toggle" type="button" data-bs-toggle="dropdown" id="dropdown">
+                                Sort candidates by:
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" @click="alphabetSort" :class="{ 'selected-button': alphabet }">Alphabetical</a></li>
+                                <li><a class="dropdown-item" href="#" @click="fundsDownSort" :class="{ 'selected-button': fundsDown }">Funds (High to Low)</a></li>
+                                <li><a class="dropdown-item" href="#" @click="fundsUpSort" :class="{ 'selected-button': fundsUp }">Funds (Low to High)</a></li>
+                                </ul>
 
+                            </div>
                         </div>
 
-                        <div class="col row text-md-end text-center" id="filter-btns">
-                            <div class="col-md-4">
-                                <button class="btn m-1" type="button" :class="{ 'btn-success': showAll }" @click="partyButton('ALL')" >All Parties</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn m-1" type="button" :class="{ 'btn-primary': showDems }" @click="partyButton('D')">Democrats</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn m-1" type="button" :class="{ 'btn-danger': showReps }" @click="partyButton('R')">Republicans</button>
+                        <div class="col-md-8">
+
+                            <div class="row justify-content-md-end text-center" id="filter-btns">
+                                <div class="col-md-auto">
+                                    <button class="btn m-1" type="button" :class="{ 'btn-green': showAll, 'btn-green-outline': !showAll }" @click="partyButton('ALL')" >All Parties</button>
+                                </div>
+                                <div class="col-md-auto">
+                                    <button class="btn m-1" type="button" :class="{ 'btn-blue': showDems, 'btn-blue-outline': !showDems }" @click="partyButton('D')">Democrats</button>
+                                </div>
+                                <div class="col-md-auto">
+                                    <button class="btn m-1" type="button" :class="{ 'btn-red': showReps, 'btn-red-outline': !showReps }" @click="partyButton('R')">Republicans</button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -116,12 +116,16 @@ h2 {
     object-fit: cover;
 }
 
+#dropdown:focus {
+    border: 3px #B3BED0 solid;
+}
+
 .democrat .card-footer {
-    background-color: lightblue;
+    background-color: #0b289075;
 }
 
 .republican .card-footer {
-    background-color: lightcoral;
+    background-color: #67080875;
 }
 
 .card-img {
@@ -209,7 +213,7 @@ h2 {
 }
 
 #filter-btns button:focus {
-    border: 2px gray solid;
+    border: 4px black double;
 }
 
 .accordion {
@@ -228,77 +232,136 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+}
   
-  .active .accordion:hover {
+.active .accordion:hover {
     background-color: black;
-  }
+}
 
-  .accordion:focus {
-    border: 2px gray solid;
-  }
+.accordion:focus {
+    border: 3px #B3BED0 solid;
+}
   
-  .accordion-panel {
+.accordion-panel {
     padding: 0 18px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     border-radius: 10px;
-  }
+}
 
-  #overview {
+#overview {
     margin-bottom: 30px;
-  }
+}
 
-  #map-buttons button {
+#map-buttons button {
     margin: 10px;
-  }
+}
 
 
-  #about a {
+#about a {
     color: black;
-  }
+}
 
-  #about a:hover {
+#about a:hover {
     background-color: #B3BED050;
-  }
+}
 
-  #about img {
+#about img {
     width: 100%;
     height: auto;
-  }
+}
 
-  #candidates .bg-primary {
+#candidates .bg-primary {
     background-color: #14213D;
     color: white;
-  }
+}
 
-  #candidates .selected-button {
+#candidates .selected-button {
     background-color: #14213D;
     color: white;
-  }
+}
 
-  #candidates h3 {
+#candidates h3 {
     transition: font-size 500ms ease;
-  }
+}
 
-  #candidates h3:hover {
+#candidates h3:hover {
     font-size: 2rem;
-  }
+}
 
-  /* .btn-primary {
-    background-color: #14213D;
-  } */
+.btn-green {
+    background-color: #012d01;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #012d0195;
+    color: white;
+}
+
+.btn-green-outline {
+    color: #012d01;
+    border: 2px #012d01 solid;
+}
+
+.btn-green-outline:hover {
+    background-color: #012d01;
+    color: white;
+}
+
+.btn-blue {
+    background-color: #0b2890;
+    color: white;
+}
+
+.btn-blue:hover {
+    background-color: #0b289095;
+    color: white;
+}
+
+.btn-blue-outline {
+    border: 2px #0b2890 solid;
+    color: #0b2890;
+}
+
+.btn-blue-outline:hover {
+    background-color: #0b2890;
+    color: white;
+}
 
 
-  .nav-link.active {
+.btn-red {
+    background-color: #670808;
+    color: white;
+}
+
+.btn-red:hover {
+    background-color: #67080890;
+    color: white;
+}
+
+.btn-red-outline {
+    border: 2px #670808 solid;
+    color: #670808;
+}
+
+.btn-red-outline:hover {
+    background-color: #670808;
+    color: white;
+}
+
+
+.nav-link.active {
     background-color: #FFFAEB !important;
-  }
+}
 
-  .nav-link {
+.nav-link {
     font-size: 1.25rem;
-  }
+}
+
+
 
 
 
