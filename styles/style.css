@@ -283,6 +283,21 @@ h2 {
     color: white;
 }
 
+.dropdown-menu a:active {
+    background-color: #14213D;
+    color: white !important;
+}
+
+.dropdown-menu a:hover {
+    background-color: #14213D90;
+    color: white !important;
+}
+
+.dropdown-menu li:focus {
+    background-color: #14213D;
+    color: white;
+}
+
 #candidates h3 {
     transition: font-size 500ms ease;
 }
@@ -359,6 +374,10 @@ h2 {
 
 .nav-link {
     font-size: 1.25rem;
+}
+
+#candidates img {
+    object-position: top center;
 }
 
 
