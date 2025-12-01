@@ -3,23 +3,34 @@
 }
 
 
-html, body {
+/* html, body {
     min-height: 100%;
     margin: 0;
-}
+} */
 
 body {
     /* height: 100%; */
     min-height: 100vh;
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     background-color: #FFFAEB;
+}
+
+#app {
+    min-height: 100vh;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 header {
     text-align: center;
     background-color: #14213D;
+    /* height: 100%; */
+}
+
+main {
     height: 100%;
+    /* flex: 1; */
 }
 
 footer {
@@ -27,6 +38,7 @@ footer {
     height: 300px;
     text-align: center;
     color: #FFFAEB;
+    bottom: 0;
 }
 
 footer a {
@@ -246,6 +258,19 @@ h2 {
 
   #about a {
     color: black;
+  }
+
+  #about a:hover {
+    background-color: #B3BED050;
+  }
+
+  #about img {
+    width: 100%;
+    height: auto;
+  }
+
+  #about p {
+    font-size: 1.10rem;
   }
 
   #candidates .bg-primary {
