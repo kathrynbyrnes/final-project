@@ -269,10 +269,6 @@ h2 {
     height: auto;
   }
 
-  #about p {
-    font-size: 1.10rem;
-  }
-
   #candidates .bg-primary {
     background-color: #14213D;
     color: white;
@@ -298,6 +294,10 @@ h2 {
 
   .nav-link.active {
     background-color: #FFFAEB !important;
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
   }
 
 
